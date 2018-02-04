@@ -1,0 +1,6 @@
+{
+   "extends": "./node_modules/@toba/lint/ts/config",
+   "include": ["./index.ts", "./lib/**/*.ts"],
+   "exclude": ["./node_modules/", "./lib/**/*.test.ts"],
+   "typeRoots": ["./lib/types", "./node_modules/@types"]
+}
