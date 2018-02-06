@@ -1,5 +1,6 @@
-import * as Logfmt from 'logfmt';
-import chalk from 'chalk';
+/* tslint:disable-next-line:no-require-imports */
+import Logfmt = require('logfmt');
+import chalk, { Chalk } from 'chalk';
 /* tslint:disable-next-line:no-require-imports */
 import flatten = require('flat');
 import { merge } from '@toba/utility';
@@ -18,7 +19,7 @@ export enum LogLevel {
 
 let defaultLevel = LogLevel.Info;
 
-const Color: { [key: number]: string } = {
+const Color: { [key: number]: Chalk } = {
    [LogLevel.Debug]: chalk.gray,
    [LogLevel.Info]: chalk.blue,
    [LogLevel.Warn]: chalk.yellow,
@@ -44,7 +45,8 @@ if (typeof process != 'undefined') {
 const defaultConfig: LogConfig = {
    color: !isProduction,
    level: defaultLevel,
-   readable: !isProduction
+   readable: !isProduction,
+   prefix: ''
 };
 
 /**
@@ -74,9 +76,6 @@ export class Logger {
       return this.log(LogLevel.Error, message, data);
    }
 
-   /**
-    * Log to the console with `level`, `message` and `data`.
-    */
    log(
       level: LogLevel = LogLevel.Info,
       message: string | Error = null,
@@ -102,12 +101,9 @@ export class Logger {
       console.log(output);
    }
 
-   /**
-    * Format a log with `level`, `message` and `data`.
-    */
-   format(level: LogLevel, message: string | Error, data: any) {
+   format(level: LogLevel, message: string | Error, data: any = null): string {
       const { color, readable } = this.config;
-      const flat = flatten(data, { delimiter: '#' });
+      const flat = data != null ? flatten(data, { delimiter: '#' }) : '';
       const ctx = { ...flat, level, message };
       const string = logfmt.stringify(ctx);
       const levelName = LogLevel[level];
