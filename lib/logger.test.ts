@@ -1,17 +1,26 @@
 import { log, Logger, LogLevel } from './logger';
 
-const example = new Logger({
-   readable: true,
-   color: true,
-   level: LogLevel.Debug
+const logMock = jest.fn();
+console.log = logMock;
+
+beforeAll(() => {
+   log.update({ color: false })
 });
 
-example.debug('message', { data: [{ index: 1 }, { index: 2 }] });
-example.info('message', { data: [{ index: 1 }, { index: 2 }] });
-example.warn('message', { data: [{ index: 1 }, { index: 2 }] });
-example.error('message', { data: [{ index: 1 }, { index: 2 }] });
+test('formats log message', () => {
+   expect(log.format(LogLevel.Error, "error message")).toMatchSnapshot();
+   expect(log.format(LogLevel.Warn, "warn message", { key: "value" })).toMatchSnapshot();
+   log.update({ readable: false });
+   expect(log.format(LogLevel.Info, "info message")).toMatchSnapshot();
+});
 
-example.error(new Error('An error occured!'));
+test('call', () => {
+   log.update({ readable: true })
+      .debug('message', { data: [{ index: 1 }, { index: 2 }] });
+
+   expect(logMock).toHaveBeenCalledWith("[Debug] message data#0#index=1 data#1#index=2 level=1 message=message");
+});
+
 
 test('export `log`', () => {
    expect(log).toBeDefined();
@@ -25,20 +34,4 @@ test('export `Logger`', () => {
 test('be instantiable', () => {
    const l = new Logger();
    expect(l).toBeInstanceOf(Logger);
-});
-
-test('should define `logger.debug`', () => {
-   expect(typeof log.debug).toBe('function');
-});
-
-test('should define `logger.info`', () => {
-   expect(typeof log.info).toBe('function');
-});
-
-test('should define `logger.warn`', () => {
-   expect(typeof log.warn).toBe('function');
-});
-
-test('should define `logger.error`', () => {
-   expect(typeof log.error).toBe('function');
 });

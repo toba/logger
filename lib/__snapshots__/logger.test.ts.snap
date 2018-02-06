@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`formats log message 1`] = `"[Error] error message level=4 message=\\"error message\\""`;
+
+exports[`formats log message 2`] = `"[Warn] warn message key=value level=3 message=\\"warn message\\""`;
+
+exports[`formats log message 3`] = `"level=2 message=\\"info message\\""`;

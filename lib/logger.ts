@@ -50,7 +50,7 @@ const defaultConfig: LogConfig = {
 };
 
 /**
- * Simple logger based on
+ * Simple console logger based on
  * https://github.com/ianstormtaylor/heroku-logger
  */
 export class Logger {
@@ -123,13 +123,11 @@ export class Logger {
    }
 
    /**
-    * Create a new logger, extending the current logger's config.
+    * Update logger configuration.
     */
-   clone(options = {}) {
-      return new Logger({
-         ...this.config,
-         ...options
-      });
+   update(config: LogConfig) {
+      this.config = merge(this.config, config);
+      return this;
    }
 }
 

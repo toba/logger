@@ -1,13 +1,16 @@
 {
    "name": "@toba/logger",
    "description": "Toba Logger",
-   "version": "1.0.0",
+   "version": "1.0.1",
    "private": false,
    "publishConfig": {
       "access": "public"
    },
    "main": "",
-   "files": ["index.ts", "lib/logger.ts"],
+   "files": [
+      "index.ts",
+      "lib/logger.ts"
+   ],
    "author": {
       "name": "Jason Abbott"
    },
@@ -19,12 +22,28 @@
       "transform": {
          "^.+\\.tsx?$": "ts-jest"
       },
-      "transformIgnorePatterns": ["<rootDir>/node_modules/(?!@toba)"],
+      "collectCoverage": true,
+      "collectCoverageFrom": [
+         "lib/*.ts"
+      ],
+      "coverageReporters": [
+         "lcov"
+      ],
+      "transformIgnorePatterns": [
+         "<rootDir>/node_modules/(?!@toba)"
+      ],
       "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-      "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"]
+      "moduleFileExtensions": [
+         "ts",
+         "tsx",
+         "js",
+         "jsx",
+         "json",
+         "node"
+      ]
    },
    "devDependencies": {
-      "@toba/lint": "^1.2.0",
+      "@toba/lint": "^1.3.3",
       "@toba/test": "^1.0.0",
       "@types/chalk": "^2.2.0",
       "@types/node": "^9.4.0",
