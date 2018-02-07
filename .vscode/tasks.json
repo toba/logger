@@ -1,0 +1,14 @@
+{
+   "version": "2.0.0",
+   "tasks": [
+      {
+         "label": "Upload code coverage",
+         "command": "codecov",
+         "args": [
+            "-t",
+            "bda4d028-bf72-42aa-b667-90d896df1998"
+         ],
+         "problemMatcher": []
+      }
+   ]
+}
