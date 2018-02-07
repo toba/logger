@@ -8,7 +8,7 @@ branches:
   - master
 
 scripts:
-  - yarn install codecov -g
+  - yarn global add codecov
   - yarn test
 
 sudo: false
