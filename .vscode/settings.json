@@ -1,3 +1,5 @@
 {
-   "eslint.enable": false
+   "eslint.enable": false,
+   "jest.enableSnapshotUpdateMessages": false,
+   "jest.enableSnapshotPreviews": false
 }

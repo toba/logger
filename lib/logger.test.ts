@@ -26,13 +26,9 @@ test('call', () => {
    );
 });
 
-test('export `log`', () => {
+test('export log singleton', () => {
    expect(log).toBeDefined();
    expect(log).toBeInstanceOf(Logger);
-});
-
-test('export `Logger`', () => {
-   expect(Logger).toBeDefined();
 });
 
 test('be instantiable', () => {
