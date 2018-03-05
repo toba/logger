@@ -1,7 +1,7 @@
 {
    "name": "@toba/logger",
    "description": "Toba Logger",
-   "version": "1.0.2",
+   "version": "1.0.3",
    "private": false,
    "publishConfig": {
       "access": "public"
@@ -38,7 +38,7 @@
       "url": "https://github.com/toba/logger/issues"
    },
    "dependencies": {
-      "@toba/utility": "^1.6.0",
+      "@toba/tools": "^1.8.0",
       "chalk": "^2.3.0",
       "flat": "^4.0.0",
       "logfmt": "^1.2.0"
