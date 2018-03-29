@@ -9,6 +9,13 @@
             "bda4d028-bf72-42aa-b667-90d896df1998"
          ],
          "problemMatcher": []
+      },
+      {
+         "label": "Test",
+         "command": "./node_modules/.bin/jest",
+         "type": "shell",
+         "group": "test",
+         "problemMatcher": []
       }
    ]
 }
