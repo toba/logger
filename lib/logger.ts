@@ -1,9 +1,9 @@
+import { merge, is } from '@toba/tools';
 /* tslint:disable-next-line:no-require-imports */
 import Logfmt = require('logfmt');
 import chalk, { Chalk } from 'chalk';
 /* tslint:disable-next-line:no-require-imports */
 import flatten = require('flat');
-import { merge } from '@toba/tools';
 
 let isProduction = false;
 
@@ -34,7 +34,7 @@ export interface LogConfig {
    threshold?: LogLevel;
 }
 
-if (typeof process != 'undefined') {
+if (typeof process != is.Type.Undefined) {
    const level = parseInt(process.env['LOG_LEVEL']);
    if (!isNaN(level) && level >= LogLevel.Debug && level <= LogLevel.Error) {
       defaultLevel = level;

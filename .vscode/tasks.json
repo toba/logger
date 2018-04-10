@@ -4,10 +4,15 @@
       {
          "label": "Upload code coverage",
          "command": "codecov",
-         "args": [
-            "-t",
-            "bda4d028-bf72-42aa-b667-90d896df1998"
-         ],
+         "args": ["-t", "bda4d028-bf72-42aa-b667-90d896df1998"],
+         "problemMatcher": []
+      },
+      {
+         "label": "Test",
+         "command": "./node_modules/.bin/jest",
+         "args": ["--verbose"],
+         "type": "shell",
+         "group": "test",
          "problemMatcher": []
       }
    ]
