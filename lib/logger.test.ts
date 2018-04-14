@@ -1,3 +1,4 @@
+import '@toba/test';
 import { log, Logger, LogLevel } from './logger';
 
 const logMock = jest.fn();

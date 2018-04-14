@@ -17,9 +17,9 @@
    },
    "devDependencies": {
       "@toba/build": "^1.4.0",
-      "@toba/test": "^1.0.4",
+      "@toba/test": "^1.12.0",
       "@types/node": "^9.4.0",
-      "prettier": "^1.11.0",
+      "prettier": "^1.12.0",
       "typescript": "^2.8.0"
    },
    "prettier": {
@@ -34,7 +34,7 @@
       "url": "https://github.com/toba/logger/issues"
    },
    "dependencies": {
-      "@toba/tools": "^1.19.0",
+      "@toba/tools": "^1.20.0",
       "chalk": "^2.3.0",
       "flat": "^4.0.0",
       "logfmt": "^1.2.0"
