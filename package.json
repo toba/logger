@@ -1,14 +1,16 @@
 {
    "name": "@toba/logger",
    "description": "Toba Logger",
-   "version": "1.0.7",
+   "version": "1.0.9",
    "private": false,
    "publishConfig": {
       "access": "public"
    },
    "main": "dist/index.js",
    "types:": "dist/index.d.ts",
-   "files": ["dist/**/*"],
+   "files": [
+      "dist/**/*"
+   ],
    "author": {
       "name": "Jason Abbott"
    },
