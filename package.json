@@ -1,21 +1,22 @@
 {
    "name": "@toba/logger",
    "description": "Toba Logger",
-   "version": "1.0.7",
+   "version": "1.0.9",
    "private": false,
    "publishConfig": {
       "access": "public"
    },
-   "main": "",
+   "main": "dist/index.js",
+   "types:": "dist/index.d.ts",
    "files": [
-      "index.ts",
-      "lib/logger.ts"
+      "dist/**/*"
    ],
    "author": {
       "name": "Jason Abbott"
    },
    "license": "MIT",
    "scripts": {
+      "prepublishOnly": "./node_modules/.bin/tsc",
       "test": "jest --coverage"
    },
    "devDependencies": {

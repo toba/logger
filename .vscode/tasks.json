@@ -16,11 +16,11 @@
          "problemMatcher": []
       },
       {
-         "label": "Test",
-         "command": "./node_modules/.bin/jest",
+         "label": "Build",
+         "command": "./node_modules/.bin/tsc",
          "type": "shell",
-         "group": "test",
-         "problemMatcher": []
+         "group": "build",
+         "problemMatcher": ["$tsc"]
       }
    ]
 }
