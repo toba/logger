@@ -1,13 +1,16 @@
 {
    "name": "@toba/logger",
    "description": "Toba Logger",
-   "version": "1.0.6",
+   "version": "1.0.7",
    "private": false,
    "publishConfig": {
       "access": "public"
    },
    "main": "",
-   "files": ["index.ts", "lib/logger.ts"],
+   "files": [
+      "index.ts",
+      "lib/logger.ts"
+   ],
    "author": {
       "name": "Jason Abbott"
    },
@@ -16,9 +19,9 @@
       "test": "jest --coverage"
    },
    "devDependencies": {
-      "@toba/build": "^1.5.0",
-      "@toba/test": "^1.14.0",
-      "@types/node": "^10.3.0",
+      "@toba/build": "^1.7.0",
+      "@toba/test": "^1.20.0",
+      "@types/node": "^10.5.0",
       "prettier": "^1.13.0",
       "typescript": "^2.9.0"
    },
@@ -34,9 +37,8 @@
       "url": "https://github.com/toba/logger/issues"
    },
    "dependencies": {
-      "@toba/tools": "^3.1.0",
+      "@toba/tools": "^3.6.0",
       "chalk": "^2.4.0",
-      "flat": "^4.0.0",
-      "logfmt": "^1.2.0"
+      "flat": "^4.0.0"
    }
 }

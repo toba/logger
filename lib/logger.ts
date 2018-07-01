@@ -1,13 +1,10 @@
 import { merge, is } from '@toba/tools';
-/* tslint:disable-next-line:no-require-imports */
-import Logfmt = require('logfmt');
 import chalk, { Chalk } from 'chalk';
 /* tslint:disable-next-line:no-require-imports */
 import flatten = require('flat');
+import { serialize } from './format';
 
 let isProduction = false;
-
-const logfmt = new Logfmt();
 
 export enum LogLevel {
    None = 0,
@@ -33,6 +30,8 @@ export interface LogConfig {
    readable?: boolean;
    threshold?: LogLevel;
 }
+
+export type LogData = { [key: string]: any };
 
 if (typeof process != is.Type.Undefined) {
    const level = parseInt(process.env['LOG_LEVEL']);
@@ -60,26 +59,26 @@ export class Logger {
       this.config = merge(defaultConfig, config);
    }
 
-   debug(message: string | Error, data: any = {}) {
+   debug(message: string | Error, data: LogData = {}) {
       return this.log(LogLevel.Debug, message, data);
    }
 
-   info(message: string | Error, data: any = {}) {
+   info(message: string | Error, data: LogData = {}) {
       return this.log(LogLevel.Info, message, data);
    }
 
-   warn(message: string | Error, data: any = {}) {
+   warn(message: string | Error, data: LogData = {}) {
       return this.log(LogLevel.Warn, message, data);
    }
 
-   error(message: string | Error, data: any = {}) {
+   error(message: string | Error, data: LogData = {}) {
       return this.log(LogLevel.Error, message, data);
    }
 
    log(
       level: LogLevel = LogLevel.Info,
       message: string | Error = null,
-      data: any = {}
+      data: LogData = {}
    ) {
       if (message instanceof Error) {
          data.error = message;
@@ -101,11 +100,15 @@ export class Logger {
       console.log(output);
    }
 
-   format(level: LogLevel, message: string | Error, data: any = null): string {
+   format(
+      level: LogLevel,
+      message: string | Error,
+      data: LogData = null
+   ): string {
       const { color, readable } = this.config;
       const flat = data != null ? flatten(data, { delimiter: '#' }) : '';
       const ctx = { ...flat, level, message };
-      const string = logfmt.stringify(ctx);
+      const string = serialize(ctx);
       const levelName = LogLevel[level];
       const text: string =
          message instanceof Error ? message.toString() : message;
