@@ -1,5 +1,4 @@
 import { merge, is } from '@toba/tools';
-import chalk, { Chalk } from 'chalk';
 import { serialize, flatten } from './format';
 
 let isProduction = false;
@@ -14,13 +13,6 @@ export enum LogLevel {
 
 let defaultLevel = LogLevel.Info;
 
-const Color: { [key: number]: Chalk } = {
-   [LogLevel.Debug]: chalk.gray,
-   [LogLevel.Info]: chalk.blue,
-   [LogLevel.Warn]: chalk.yellow,
-   [LogLevel.Error]: chalk.red
-};
-
 export interface LogConfig {
    color?: boolean;
    level?: LogLevel;
@@ -31,13 +23,11 @@ export interface LogConfig {
 
 export type LogData = { [key: string]: any };
 
-if (typeof process != is.Type.Undefined) {
-   const level = parseInt(process.env['LOG_LEVEL']);
-   if (!isNaN(level) && level >= LogLevel.Debug && level <= LogLevel.Error) {
-      defaultLevel = level;
-   }
-   isProduction = process.env['NODE_ENV'] == 'production';
-}
+/**
+ * Colorize logs in development but do nothing in production.
+ */
+let colorize = (_level: LogLevel, message: string, _ctx: string): string =>
+   message;
 
 const defaultConfig: LogConfig = {
    color: !isProduction,
@@ -103,7 +93,6 @@ export class Logger {
       message: string | Error,
       data: LogData = null
    ): string {
-      debugger;
       const { color, readable } = this.config;
       const flat = data != null ? flatten(data, '#') : '';
       const ctx = { ...flat, level, message };
@@ -113,10 +102,7 @@ export class Logger {
          message instanceof Error ? message.toString() : message;
 
       if (readable && color) {
-         const tag = `${Color[level](`[${levelName}]`)}`;
-         const msg = level > LogLevel.Warn ? chalk.red(text) : message;
-         const obj = `${chalk.gray(string)}`;
-         return `${tag} ${msg} ${obj}`;
+         return colorize(level, text, string);
       } else if (readable) {
          return `[${levelName}] ${text} ${string}`;
       } else {
@@ -132,6 +118,42 @@ export class Logger {
       return this;
    }
 }
+
+async function configure() {
+   if (typeof process != is.Type.Undefined) {
+      const level = parseInt(process.env['LOG_LEVEL']);
+      if (!isNaN(level) && level >= LogLevel.Debug && level <= LogLevel.Error) {
+         defaultLevel = level;
+      }
+      isProduction = process.env['NODE_ENV'] == 'production';
+
+      if (isProduction) {
+         enableColor();
+      }
+   }
+}
+
+async function enableColor() {
+   const chalk = await import('chalk');
+   const color = chalk.default;
+   const levelColor: { [key: number]: any } = {
+      [LogLevel.Debug]: color.gray,
+      [LogLevel.Info]: color.blue,
+      [LogLevel.Warn]: color.yellow,
+      [LogLevel.Error]: color.red
+   };
+
+   // update colorize method to use Chalk
+   colorize = (level: LogLevel, message: string, ctx: string) => {
+      const levelName = LogLevel[level];
+      const tag = `${levelColor[level](`[${levelName}]`)}`;
+      const msg = level > LogLevel.Warn ? color.red(message) : message;
+      const obj = `${color.gray(ctx)}`;
+      return `${tag} ${msg} ${obj}`;
+   };
+}
+
+configure();
 
 /**
  * Logger singleton.
