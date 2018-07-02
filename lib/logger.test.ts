@@ -1,5 +1,6 @@
 import '@toba/test';
-import { log, Logger, LogLevel } from './logger';
+import { log, LogLevel } from './index';
+import { Logger } from './logger';
 
 const logMock = jest.fn();
 console.log = logMock;
@@ -18,9 +19,9 @@ test('formats log message', () => {
 });
 
 test('call', () => {
-   log
-      .update({ readable: true })
-      .debug('message', { data: [{ index: 1 }, { index: 2 }] });
+   log.update({ readable: true }).debug('message', {
+      data: [{ index: 1 }, { index: 2 }]
+   });
 
    expect(logMock).toHaveBeenCalledWith(
       '[Debug] message data#0#index=1 data#1#index=2 level=1 message=message'

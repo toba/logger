@@ -39,4 +39,49 @@ export function serialize(data: LogData): string {
    return line.substring(0, line.length - 1);
 }
 
-export function flatten() {}
+type Hash = { [key: string]: any };
+
+/**
+ * Combine nested objest keys into compound keys so object has only one level of
+ * key-values. Adapted from `hughsk/flat`.
+ *
+ * @example
+ * flatten({
+ *    key1: {
+ *       keyA: 'valueI'
+ *    },
+ *    key2: {
+ *       keyB: 'valueII'
+ *    },
+ *    key3: { a: { b: { c: 2 } } }
+ * })
+ * =>
+ * {
+ *   'key1.keyA': 'valueI',
+ *   'key2.keyB': 'valueII',
+ *   'key3.a.b.c': 2
+ * }
+ *
+ * @see https://github.com/hughsk/flat
+ */
+export function flatten(target: Hash, delimiter = '.'): Hash {
+   const output: Hash = {};
+   const step = (
+      input: Hash,
+      parentKey: string = null,
+      depth: number = 1
+   ): void =>
+      Object.keys(input).forEach(key => {
+         const value = input[key];
+         const newKey = parentKey !== null ? parentKey + delimiter + key : key;
+
+         if (is.hash(value, false) || is.array(value)) {
+            return step(value, newKey, depth + 1);
+         }
+         output[newKey] = value;
+      });
+
+   step(target);
+
+   return output;
+}

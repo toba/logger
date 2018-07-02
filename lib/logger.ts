@@ -1,8 +1,6 @@
 import { merge, is } from '@toba/tools';
 import chalk, { Chalk } from 'chalk';
-/* tslint:disable-next-line:no-require-imports */
-import flatten = require('flat');
-import { serialize } from './format';
+import { serialize, flatten } from './format';
 
 let isProduction = false;
 
@@ -50,7 +48,7 @@ const defaultConfig: LogConfig = {
 
 /**
  * Simple console logger based on
- * https://github.com/ianstormtaylor/heroku-logger
+ * @see https://github.com/ianstormtaylor/heroku-logger
  */
 export class Logger {
    config: LogConfig;
@@ -86,7 +84,7 @@ export class Logger {
          message = message.message;
       }
 
-      if (typeof message != 'string') {
+      if (typeof message != is.Type.String) {
          message = String(message);
       }
 
@@ -105,8 +103,9 @@ export class Logger {
       message: string | Error,
       data: LogData = null
    ): string {
+      debugger;
       const { color, readable } = this.config;
-      const flat = data != null ? flatten(data, { delimiter: '#' }) : '';
+      const flat = data != null ? flatten(data, '#') : '';
       const ctx = { ...flat, level, message };
       const string = serialize(ctx);
       const levelName = LogLevel[level];
@@ -135,6 +134,6 @@ export class Logger {
 }
 
 /**
- * Create a logger singleton with sane defaults.
+ * Logger singleton.
  */
 export const log = new Logger();

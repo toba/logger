@@ -21,6 +21,27 @@
          "type": "shell",
          "group": "build",
          "problemMatcher": ["$tsc"]
+      },
+      {
+         "label": "Publish",
+         "command": "npm",
+         "args": ["publish"],
+         "type": "shell",
+         "group": "none",
+         "problemMatcher": []
+      },
+      {
+         "label": "List Production Dependencies",
+         "command": "npm",
+         "args": ["ls", "-prod=true"],
+         "type": "shell",
+         "presentation": {
+            "echo": false,
+            "reveal": "always",
+            "focus": true,
+            "panel": "shared"
+         },
+         "problemMatcher": []
       }
    ]
 }
