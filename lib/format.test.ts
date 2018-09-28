@@ -54,12 +54,12 @@ test('escapes backslahes within strings', () => {
 });
 
 test('serializes undefined as nothing', () => {
-   const data = { foo: undefined };
+   const data = { foo: undefined as string };
    expect(serialize(data)).toBe('foo=');
 });
 
 test('serializes null as nothing', () => {
-   const data = { foo: null };
+   const data = { foo: null as string };
    expect(serialize(data)).toBe('foo=');
 });
 
