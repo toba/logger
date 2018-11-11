@@ -40,6 +40,6 @@
       "url": "https://github.com/toba/logger/issues"
    },
    "dependencies": {
-      "@toba/tools": "^3.8.0"
+      "@toba/tools": "^3.15.6"
    }
 }
