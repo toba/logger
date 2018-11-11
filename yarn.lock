@@ -163,30 +163,24 @@
     tslint-config-prettier "^1.13.0"
     tslint-consistent-codestyle "^1.13.0"
 
-"@toba/logger@^1.1.0":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@toba/logger/-/logger-1.1.1.tgz#5616f17963b1ecc25fc9bbfcdfcdf214831b97b8"
-  integrity sha512-wpxSJWAyvJo98D88fupLLkxZBw5rLH6kmKSgQSibxCrP6jZ+tOEOpPgoWnBdOBwNvbjw4Z3KRPvn7p2r3EvOng==
+"@toba/logger@^2.0.4":
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@toba/logger/-/logger-2.0.4.tgz#79627da00a5199bf962b69cafc439ea0630c0aa9"
+  integrity sha512-gaDbOGB5cSyNqqKxoAmchokNtYkzLl+EavDSlsB6wXfOy9nF/krQUpBI+4Xs2i1amPTPwn8nUV1qVt6IR6+Xqw==
   dependencies:
-    "@toba/tools" "^3.8.0"
+    "@toba/tools" "^4.0.0"
 
-"@toba/test@^2.0.0":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@toba/test/-/test-2.0.1.tgz#f930cc1cb8ed0b102a7299226076f47020d7d620"
-  integrity sha512-Aa2gI4l447ZRIoNv61grcmcPhD89TJcTtdlB2+V1oq1+sRu1K2Q5T8HawrwIflXUEiyTuKHjg1Tax72B54sh3A==
+"@toba/test@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@toba/test/-/test-2.0.2.tgz#5540aa2751f0e7d9a312f0a3d777c6b348dfa69d"
+  integrity sha512-WCufBTZnRNW/kQ0sIMMb74a3JPiXrOuXhwym8t+9FLEgVOxs9sqCitWIW4LywsQbJsScQSyv+nvKgMGAdv1UJA==
   dependencies:
-    "@toba/logger" "^1.1.0"
-    "@toba/tools" "^3.12.0"
+    "@toba/logger" "^2.0.4"
+    "@toba/tools" "^4.0.0"
     "@types/jest" "^23.3.0"
     "@types/node" "^10.5.0"
     jest "^23.5.0"
-    jest-pnp-resolver "^1.0.1"
-    ts-jest "^23.1.0"
-
-"@toba/tools@^3.12.0", "@toba/tools@^3.8.0":
-  version "3.15.6"
-  resolved "https://registry.yarnpkg.com/@toba/tools/-/tools-3.15.6.tgz#ecd6f0499e4a28536f786a5a04333ed3844ec24b"
-  integrity sha512-A0Urg6DrPfnPxMoG06cV6SmczsHDzBozM2N6lqERhGXJjr/UWqNcwXXdiv1ztTBhKT6bu0c35YvqnmOdEd9RVQ==
+    ts-jest "^23.10.4"
 
 "@toba/tools@^4.0.0":
   version "4.0.0"
@@ -2553,11 +2547,6 @@ jest-mock@^23.2.0:
   resolved "https://registry.yarnpkg.com/jest-mock/-/jest-mock-23.2.0.tgz#ad1c60f29e8719d47c26e1138098b6d18b261134"
   integrity sha1-rRxg8p6HGdR8JuETgJi20YsmETQ=
 
-jest-pnp-resolver@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/jest-pnp-resolver/-/jest-pnp-resolver-1.0.1.tgz#f397cd71dbcd4a1947b2e435f6da8e9a347308fa"
-  integrity sha512-kzhvJQp+9k0a/hpvIIzOJgOwfOqmnohdrAMZW2EscH3kxR2VWD7EcPa10cio8EK9V7PcD75bhG1pFnO70zGwSQ==
-
 jest-regex-util@^23.3.0:
   version "23.3.0"
   resolved "https://registry.yarnpkg.com/jest-regex-util/-/jest-regex-util-23.3.0.tgz#5f86729547c2785c4002ceaa8f849fe8ca471bc5"
@@ -4683,7 +4672,7 @@ trough@^1.0.0:
   resolved "https://registry.yarnpkg.com/trough/-/trough-1.0.3.tgz#e29bd1614c6458d44869fc28b255ab7857ef7c24"
   integrity sha512-fwkLWH+DimvA4YCy+/nvJd61nWQQ2liO/nF/RjkTpiOGi+zxZzVkhb1mvbHIIW4b/8nDsYI8uTmAlc0nNkRMOw==
 
-ts-jest@^23.1.0:
+ts-jest@^23.10.4:
   version "23.10.4"
   resolved "https://registry.yarnpkg.com/ts-jest/-/ts-jest-23.10.4.tgz#a7a953f55c9165bcaa90ff91014a178e87fe0df8"
   integrity sha512-oV/wBwGUS7olSk/9yWMiSIJWbz5xO4zhftnY3gwv6s4SMg6WHF1m8XZNBvQOKQRiTAexZ9754Z13dxBq3Zgssw==

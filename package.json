@@ -1,7 +1,7 @@
 {
    "name": "@toba/logger",
    "description": "Toba Logger",
-   "version": "2.0.4",
+   "version": "2.0.5",
    "private": false,
    "publishConfig": {
       "access": "public"
@@ -22,7 +22,7 @@
    },
    "devDependencies": {
       "@toba/build": "^1.7.0",
-      "@toba/test": "^2.0.0",
+      "@toba/test": "^2.0.2",
       "@types/node": "^10.5.0",
       "chalk": "^2.4.0",
       "prettier": "^1.13.0",
