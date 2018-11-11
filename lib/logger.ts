@@ -16,9 +16,9 @@ let defaultLevel = LogLevel.Info;
 export interface LogConfig {
    color?: boolean;
    level?: LogLevel;
-   prefix?: string;
+   prefix: string;
    readable?: boolean;
-   threshold?: LogLevel;
+   threshold: LogLevel;
 }
 
 export type LogData = { [key: string]: any };
@@ -33,7 +33,8 @@ const defaultConfig: LogConfig = {
    color: !isProduction,
    level: defaultLevel,
    readable: !isProduction,
-   prefix: ''
+   prefix: '',
+   threshold: LogLevel.Info
 };
 
 /**
@@ -43,7 +44,7 @@ const defaultConfig: LogConfig = {
 export class Logger {
    config: LogConfig;
 
-   constructor(config: LogConfig = {}) {
+   constructor(config: Partial<LogConfig> = {}) {
       this.config = merge(defaultConfig, config);
    }
 
@@ -65,7 +66,7 @@ export class Logger {
 
    log(
       level: LogLevel = LogLevel.Info,
-      message: string | Error = null,
+      message: string | Error | null = null,
       data: LogData = {}
    ) {
       if (message instanceof Error) {
@@ -91,7 +92,7 @@ export class Logger {
    format(
       level: LogLevel,
       message: string | Error,
-      data: LogData = null
+      data: LogData | null = null
    ): string {
       const { color, readable } = this.config;
       const flat = data != null ? flatten(data, '#') : '';
@@ -121,9 +122,16 @@ export class Logger {
 
 async function configure() {
    if (typeof process != is.Type.Undefined) {
-      const level = parseInt(process.env['LOG_LEVEL']);
-      if (!isNaN(level) && level >= LogLevel.Debug && level <= LogLevel.Error) {
-         defaultLevel = level;
+      const env = process.env['LOG_LEVEL'];
+      if (env !== undefined) {
+         const level = parseInt(env);
+         if (
+            !isNaN(level) &&
+            level >= LogLevel.Debug &&
+            level <= LogLevel.Error
+         ) {
+            defaultLevel = level;
+         }
       }
       isProduction = process.env['NODE_ENV'] == 'production';
 

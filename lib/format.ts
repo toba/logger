@@ -68,7 +68,7 @@ export function flatten(target: Hash, delimiter = '.'): Hash {
    const output: Hash = {};
    const step = (
       input: Hash,
-      parentKey: string = null,
+      parentKey: string | null = null,
       depth: number = 1
    ): void =>
       Object.keys(input).forEach(key => {
