@@ -164,16 +164,16 @@
     tslint-consistent-codestyle "^1.13.0"
 
 "@toba/logger@^2.0.4":
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/@toba/logger/-/logger-2.0.4.tgz#79627da00a5199bf962b69cafc439ea0630c0aa9"
-  integrity sha512-gaDbOGB5cSyNqqKxoAmchokNtYkzLl+EavDSlsB6wXfOy9nF/krQUpBI+4Xs2i1amPTPwn8nUV1qVt6IR6+Xqw==
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/@toba/logger/-/logger-2.0.5.tgz#8e196e1e92710873b7b77ed4bb5a53e82764a9ee"
+  integrity sha512-28hO9lS4336R/ryXBmFfRQ+jACSgaRsRov6Sk6fdymuGNzRnvHjYNpW+PfPsPP9IDqM3E8VchaT0hO62j1gLqQ==
   dependencies:
     "@toba/tools" "^4.0.0"
 
 "@toba/test@^2.0.2":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@toba/test/-/test-2.0.2.tgz#5540aa2751f0e7d9a312f0a3d777c6b348dfa69d"
-  integrity sha512-WCufBTZnRNW/kQ0sIMMb74a3JPiXrOuXhwym8t+9FLEgVOxs9sqCitWIW4LywsQbJsScQSyv+nvKgMGAdv1UJA==
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@toba/test/-/test-2.0.3.tgz#0099b4da5b6d0af4806a4b0666e3c9c3d151acfa"
+  integrity sha512-0Ad3+2NeKnzOtcC+Ef9vTLIpkQqdt0wnFAAhvEkFYrqkiWHQdxdO51o/hgliZ3SVhKGzxaiOMN5MYWZPESNs0w==
   dependencies:
     "@toba/logger" "^2.0.4"
     "@toba/tools" "^4.0.0"
@@ -183,9 +183,9 @@
     ts-jest "^23.10.4"
 
 "@toba/tools@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@toba/tools/-/tools-4.0.0.tgz#645f69e7be219cb233172c1825bfb985136b335a"
-  integrity sha512-AI/6u8x+pBYqK/k1lgcWvI/j1n34iHQQPmQ8v22vtJq2wy3eS+UGA6ywKDc1pemuHUmaI9oxmzeBY1HRZNVsbw==
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/@toba/tools/-/tools-4.0.2.tgz#e5eed232e1a001ad1d6186bed569d28fe20cb043"
+  integrity sha512-P18y4q9dJTQxApo9bxDGdQOMeJDtq5Xk+pf7nGHGnw8xn25OEaugUo2DXCYQPUiXxowgklCeleXgzU6t6pFJ6g==
 
 "@types/jest@^23.3.0":
   version "23.3.9"
