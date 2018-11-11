@@ -114,7 +114,7 @@ export class Logger {
    /**
     * Update logger configuration.
     */
-   update(config: LogConfig) {
+   update(config: Partial<LogConfig>) {
       this.config = merge(this.config, config);
       return this;
    }
