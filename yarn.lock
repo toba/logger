@@ -183,10 +183,15 @@
     jest-pnp-resolver "^1.0.1"
     ts-jest "^23.1.0"
 
-"@toba/tools@^3.12.0", "@toba/tools@^3.15.6", "@toba/tools@^3.8.0":
+"@toba/tools@^3.12.0", "@toba/tools@^3.8.0":
   version "3.15.6"
   resolved "https://registry.yarnpkg.com/@toba/tools/-/tools-3.15.6.tgz#ecd6f0499e4a28536f786a5a04333ed3844ec24b"
   integrity sha512-A0Urg6DrPfnPxMoG06cV6SmczsHDzBozM2N6lqERhGXJjr/UWqNcwXXdiv1ztTBhKT6bu0c35YvqnmOdEd9RVQ==
+
+"@toba/tools@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@toba/tools/-/tools-4.0.0.tgz#645f69e7be219cb233172c1825bfb985136b335a"
+  integrity sha512-AI/6u8x+pBYqK/k1lgcWvI/j1n34iHQQPmQ8v22vtJq2wy3eS+UGA6ywKDc1pemuHUmaI9oxmzeBY1HRZNVsbw==
 
 "@types/jest@^23.3.0":
   version "23.3.9"
